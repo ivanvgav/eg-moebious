@@ -1,0 +1,172 @@
+% Load the kaohandt class (with the default options)
+\documentclass[
+	fontsize=10pt, % Base font size
+	twoside=false, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+	secnumdepth=1, % How deep to number headings. Defaults to 2 (subsections)
+	abstract=true, % Uncomment to print the title of the abstract
+]{kaohandt}
+
+% Choose the language
+\usepackage[spanish]{babel} % Load characters and hyphenation
+\usepackage[spanish=mexican]{csquotes}	% English quotes
+
+% Load packages for testing
+\usepackage{blindtext}
+%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
+%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+
+\graphicspath{{images/}{./}} % Paths where images are looked for
+
+% Load mathematical packages for theorems and related environments.
+\usepackage{kaotheorems}
+
+% Load the bibliography package
+\usepackage{kaobiblio}
+\addbibresource{biblio.bib} % Bibliography file
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[Una interpretación filosofica de los gráficos existenciales en la cinta de Moebious]{Una interpretación filosofica de los gráficos existenciales en la cinta de Moebious}
+
+\author[IVG, APH]{Ivan Vladimir Gavriloff\thanks{UNT - CONICET} \and Angie Paola Hueght \thanks{Universidad de Bogotá}}
+
+\date{\today}
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\maketitle
+
+\margintoc
+
+\begin{abstract}
+\noindent
+En los últimos años ha habido grandes desarollos en el ámbito de las matemáticas y de la topología en particular acerca de los sistemas de lógicas diagramáticas. Uno de los avances más destacados es la utlización de estructura de Riemann dentro de los sistemas de gráficos existenciales para poder descubrir propiedades topológicas y categoriales de dicho sistema de lógica diagramática. Con todos estos avances no se ha podido encontrar una interpretación filosófica satisfactoria a dichas estructuras.
+En el presente trabajo nos proponemos realizar una interpretación filosófica a los gráficos existenciales alfa de C.S. Peirce en la estructura de Riemann de la Cinta de Moebious. Elegimos dicha estructura debido a que tiene una semántica ya estudiada y consideramos que será mucho más conveniente el poder realizar dicha interpretación en una estructura ya estudiada. Nuestra hipótesis es que la cinta de Moebious puede ser interpretada como una lógica paraconsistente (o una familia de lógicas paraconsistentes). Para esto vamos a definir los gráficos existenciales alfa, las propiedades que tienen estos en la cinta de Moebious y vamos a dar cuenta del procedimiento para poder alcanzar dicha interpretación sugerida. Por último vamos a dejar algunas cuestiones abiertas dadas por este trabajo y las conclusiones.
+\end{abstract}
+
+{\noindent\textbf{Keywords:} Peirce, gráficos existenciales, cinta de moubious, interpretación filosófica}
+
+\medskip
+
+%----------------------------------------------------------------------------------------
+%	MAIN BODY
+%----------------------------------------------------------------------------------------
+
+\section{Introducción}
+\label{sec:Introducción}
+
+En los últimos años se ha comenzado a estudiar con fuerza dentro de la denominada \textit{Escuela Colombiana Peirceana} varias arístas posibles de los Gráficos Existenciales de C. S. Peirce. Una demostración de esto son los trabajos realizados por los matemáticos del Tolima con Oostra a la cabeza.
+
+\subsection{Plan de trabajo} % (fold)
+\label{sub:Plan de trabajo}
+En el presente trabajo vamos a prodecer de la siguiente manera: primero vamos a introducir el sistema de gráficos existenciales alfa. Luego, vamos a dar cuenta de la estrcutura de la cinta de Moebious y cómo ésta se relaciona con los gráficos existenciales, para ello vamos a tomar en consideración lo estudiado por \cite{oostra2023} y por su equipo de matemáticos. Habiendo preparado todo el campo lógico técnico vamos a indagar ciertos conceptos lógicos filosóficos como ser el del \textit{universo del discurso} y ciertas descripciones realizadas por Peirce respecto de la hoja de aseveración y el corte. Teniendo todo esto vamos a otorgar la interpretación filosófica de los gráficos en la cinta de Moebious.
+
+% subsection Plan de trabajo (end)
+
+% \blindtext\sidenote[][*-8]{\blindtext}
+
+\section{Gráficos existenciales alfa}
+
+Los gráficos existenciales propuestos por Peirce vienen a dar cuenta de una preocupación propia del filósofo pragmatista y a la vez de dar su propio intento dentro de la historia de la lógica en los momentos de la conformación de la lógica matemática después de la silogística aristotélica (véase \cite{brady2011}).
+
+Lo importante e interesante de este sistema de lógica es que presenta a la lógica en una serie de elementos diagramáticos y reglas de transformación para poder transformar de un estado inicial a otro los gráficos presentes en la hoja de aseveración. Otro punto importante es que para la realización de los gráficos existenciales tienen que entenderse de manera dialógica: hay un grafista quien inscribe los gráficos en la hoja y, por otro lado, un interprete que interpreta lo aseverado en la hoja.\sidenote{Cabe destacar que estos roles no tienen que ser necesariamente entidades físicas o personas. Pueden ser muy bien considerados como agentes o como roles dentro de un mismo agente. Si se desea indagar más estas cuestiones véase \cite{peirce1906}.} Ahora bien los elementos diagramáticos son los siguientes:
+
+\begin{definition}[Hoja de aseveración]
+	La hoja de aseveración es un plano $ L $ en el cual se pueden realiar ciertas acciones como ser la de insertar letras proposionales, cortes. La hoja de aseveración sin nada en ella ya es un gráfico en sí misma.
+\end{definition}
+
+\begin{definition}[Letras proposionales]
+	Letras proposionales en mayúsculas como por ejemplo: $ P, Q, R, \dots, etc $. Cualquiera letra proposicional se considera un gráfico.
+\end{definition}
+
+\begin{definition}[Corte]
+	Curva de Jordan cerrada la cual puede encerrar a cualquier letra proposional, y otros cortes. El corte en dí mismo también es un gráfico.
+\end{definition}
+
+A continuación daremos las Reglas de transformación con las que podremos transformar los gráficos existenciales alfa:
+
+\begin{definition}[Regla de inserción]
+	Dada el área
+\end{definition}
+
+\begin{definition}[Regla de borrado]
+	Dada el área
+\end{definition}
+
+\begin{definition}[Regla de iteración]
+	Dada el área
+\end{definition}
+
+\begin{definition}[Regla de desiteración]
+	Dada el área
+\end{definition}
+
+\begin{definition}[Regla de doble corte]
+	Dado un corte doble en cualquier área par de la hoja de aseveración éste puede ser borrado.
+\end{definition}
+
+Solo con estos elementos y con las reglas de transformación, es que se puede tener el equivalente de la lógica proposional completa y correcta de modo diagramático (véase \cite{roberts1973}).
+
+Algunos ejemplos de ciertas proposiones realizadas en gráficos existenciales son las siguientes:
+
+\section{La Cinta de Moebious} % (fold)
+\label{sec:La Cinta de Moebious}
+
+% section La Cinta de Moebious (end)
+
+\section{Previo a la interpreción filosofíca} % (fold)
+\label{sec:Previo a la interpreción filosofíca}
+
+Antes de poder otorgar a los gráficos existenciales en la superficie de la cinta de Moebious una posible interpretación filosófica es necesario poder ahondar en algunos conceptos importantes considerados por el propio Peirce al momento de la creación de los gráficos para tener las nociones necesarias para una interpretación fructífera y, ante todo, plausible. Hay que tener en cuenta que en varios lados la hoja de aseveración se encuentra en relación con la noción lógica de Universo de Discurso.
+
+\enquote{TODO: Colocar citas de lo que es el universo de discurso para Peirce.}
+
+El universo del discurso permite que el grafista y el interprete se encuentren en un \textit{common ground} del cual se supongan varias nociones y elementos para que estos no tengan problemas a la hora de realizar las interpretaciones debidas para averiguar y analizar si ciertos gráficos son o no válidos.
+
+En los gráficos existenciales alfa la hoja de aseveración viene a representar el universo del dicurso. En este sentido dicho universo del discurso tiene determinadas características que hacen que dicho universo pueda ser compatible con la lógica clásica:
+
+\enquote{TODO: Colocar sobre cómo es el universo del discurso de la hoja de aseveración para Peirce.}
+
+Visto de esta manera, nos parece peculiar que determinadas características del universo del discurso y de la hoja de aseveración hayan dado lugar a que se pueda expresar topológicamente la lógica clásica sin haber tenido la enorme cantidad de resultados topológicos que se encuentran en la actualidad.\sidenote{Cabe destacar que Peirce si conocía la topología, puesto que era contemporáneo a varios de los matemáticos que indagaban en dicha área e incluso realizó algunas observaciones de orden topológico, sin embargo por obvias razones no puede compararse con cualquier topólogo contemporáneo.}
+
+% section Previo a la interpreción filosofíca (end)
+
+\section{Interpretación filosófica} % (fold)
+\label{sec:Interpretación filosófica}
+
+% section Interpretación filosófica (end)
+
+\section{Conclusiones} % (fold)
+\label{sec:Conclusiones}
+
+Como futuras investigaciones tenemos la visión de seguir realizando lo mismo que hemos realizado aquí pero para las otras estructuras de Riemann que ya Oostra y equipo determinaron en sus trabajos. Consideramos que es meritorio dicho trabajo pero que para que éste siga el mismo espíritu peircano es necesario tener dar cuenta de las interpretaciones filosoficas de dichas estructuras matemáticas. Considearmos que la filosofía de Peirce si bien es de un pluralismo radical (véase \cite{rosenthal1994}) siempre ha tenido una fuerte impronta filosófica en todo lo que tiene que ver con sus consideraciones matemáticas. Es en este sentido que creemos que continuamos con su tarea y legado dejado para la comunidad filosófica y científica. Como bien marca Peirce lo que menos deseamos es que se bloquee el camino de la investigación.
+
+% section Conclusiones (end)
+% \blindtext
+
+% \appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
+%
+% \section{Appendix}
+%
+% \blindtext
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
+
+\printbibliography[title=Bibliografía] % Set the title of the bibliography and print the references
+
+\end{document}
