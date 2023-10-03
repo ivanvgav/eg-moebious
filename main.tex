@@ -1,7 +1,7 @@
 % Load the kaohandt class (with the default options)
 \documentclass[
 	fontsize=10pt, % Base font size
-	twoside=false, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+	twoside=true, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 	secnumdepth=1, % How deep to number headings. Defaults to 2 (subsections)
 	abstract=true, % Uncomment to print the title of the abstract
 ]{kaohandt}
@@ -118,7 +118,7 @@ A continuación daremos las Reglas de transformación con las que podremos trans
 
 Solo con estos elementos y con las reglas de transformación, es que se puede tener el equivalente de la lógica proposional completa y correcta de modo diagramático (véase \cite{roberts1973}).
 
-Algunos ejemplos de ciertas proposiones realizadas en gráficos existenciales son las siguientes:
+Algunos ejemplos de ciertas proposiciones realizadas en gráficos existenciales son las siguientes:
 
 \section{La Cinta de Moebious} % (fold)
 \label{sec:La Cinta de Moebious}
@@ -148,6 +148,12 @@ En los gráficos existenciales alfa la hoja de aseveración viene a representar 
 
 \enquote{TODO: Colocar sobre cómo es el universo del discurso de la hoja de aseveración para Peirce.}
 
+Algo ha destacar de igual manera es lo concerniente a la acción del corte en si misma. Como figura topológica el corte ha sido analizado ampliamente \sidecite{pietarinenetal2020}. Ahora bien el corte realiza una acción particular en la hoja de afirmación (\textif{assertion}) como bien marca Peirce en 1903:
+
+\enquote{A cut is not a graph-replica. A cut drawn upon the sheet of assertion severs the surface it encloses, called the area of the cut, from the sheet of assertion; so that the area of a cut is no part of the sheet of assertion. (CP 4.414)}
+
+Como lo describe el propio Peirce, el corte realiza la acción de determinar lo que se encuentra dentro del corte (el área del corte) como aquello que no pertenece a la hoja de aseveración. En este sentido, varios autores han marcado que la hoja de aseveración puede entenderse como el top ($\top$) y el corte sin ninguna letra proposicional dentro como el \textit{falsum} ($\bot$).\sidenote{Esto permitió que se pueda desarrollar pruebas de corrección y completitud para el sistemas de gráficos existenciales alfa solo basándose en los gráficos. Véase TODO: agregar cita del trabajo} Filosóficamente esta idea de que área del corte no es parte de la hoja es interesante para poder ver cómo ésta se manifiesta en las estructuras de Riemann como la cinta de Moebious.
+
 El universo del discurso no solo tiene las características ahora conocidas en el ámbito de la lógica. Sino también componen dentro del campo semiótico el espacio donde el grafista y el interprete de tienen lo \emph{común} para poder llevar a cabo el proceso de los gráficos existenciales. Esto no es algo menor debido a que en los sistemas axiomáticos o incluso en los sistemas de calculo de secuentes o de deducción natural no se encuentra presente el ámbito implícito de lo que es necesario que se tenga en cuenta para poder interpretar la validez o incluso la confección misma de un argumento, algo que si se encuentra en el sistema de gráficos existenciales.
 
 Visto de esta manera, nos parece peculiar que determinadas características del universo del discurso y de la hoja de aseveración hayan dado lugar a que se pueda expresar topológicamente la lógica clásica sin haber tenido la enorme cantidad de resultados topológicos que se encuentran en la actualidad.\sidenote{Cabe destacar que Peirce si conocía la topología, puesto que era contemporáneo a varios de los matemáticos que indagaban en dicha área e incluso realizó algunas observaciones de orden topológico, sin embargo por obvias razones no puede compararse con cualquier topólogo contemporáneo.}
@@ -158,6 +164,8 @@ Lo necesario para dar cuenta de la interpretación filosófica es que encontremo
 
 \section{Interpretación filosófica} % (fold)
 \label{sec:Interpretación filosófica}
+
+Una posible idea para dar cuenta de la interpretación filosófica es considerar que lo que hace el corte en la hoja de afirmación es dar vuelta, mostrar el reverso de la misma. Aquello que no se es afirmado. Aquello por lo cual uno no se hace responsable de su verdad.\sidenote{Haciendo alusión a la definición de \textit{assertion} de Peirce.} Entonces uno podría pensar que si la hoja de afirmación se transforma en una cinta de Moebious de afirmación, dicha cinta solo tiene una cara. No hay un anverso y un reverso. Al menos no globalmente hablando. Si lo hay localmente.  
 
 % section Interpretación filosófica (end)
 
@@ -182,5 +190,5 @@ Como futuras investigaciones tenemos la visión de seguir realizando lo mismo qu
 % The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
 
 \printbibliography[title=Bibliografía] % Set the title of the bibliography and print the references
-
+\nocite{peirce1931}
 \end{document}
