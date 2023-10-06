@@ -19,6 +19,20 @@
 
 % Load mathematical packages for theorems and related environments.
 \usepackage{kaotheorems}
+\usepackage{tikz}
+\usepackage{tikz-cd} % For 'complicated' diagrams
+\usetikzlibrary{arrows, calc, decorations.pathmorphing, matrix} 
+\usepackage[color, all]{xy}
+
+\usepackage{pstricks}
+\newpsobject{grid}{psgrid}{subgriddiv=1,griddots=10,gridlabels=6pt}
+\newcommand{\equi}{
+	\begin{pspicture}(-0.4,-0.1)(0.5,0.5)
+		\psline[linewidth=0.5pt](-0.3,0.09)(-0.12,0)(0.12,0)(0.3,0.09)
+		\psline[linewidth=0.5pt](-0.3,-0.09)(-0.12,0)(0.12,0)(0.3,-0.09)
+	\end{pspicture}
+}
+\usepackage{pst-solides3d}
 
 % Load the bibliography package
 \usepackage{kaobiblio}
@@ -35,9 +49,9 @@
 %	REPORT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title[Una interpretación filosofica de los gráficos existenciales en la cinta de Moebious]{Una interpretación filosofica de los gráficos existenciales en la cinta de Moebious}
+\title[Una interpretación filosófica de los Gráficos Existenciales en la cinta de Möbius]{Una interpretación filosófica de los Gráficos Existenciales en la cinta de Möbius}
 
-\author[IVG, APH]{Ivan Vladimir Gavriloff\thanks{UNT - CONICET} \and Angie Paola Hueght \thanks{Universidad de Bogotá}}
+\author[IVG, APHV]{Ivan Vladimir Gavriloff\thanks{UNT - CONICET} \and Angie Paola Hugueth Vásquez \thanks{Universidad Nacional de Colombia}}
 
 \date{\today}
 
@@ -52,10 +66,10 @@
 \begin{abstract}
 	\noindent
 	En los últimos años ha habido grandes desarollos en el ámbito de las matemáticas y de la topología en particular acerca de los sistemas de lógicas diagramáticas. Uno de los avances más destacados es la utlización de estructura de Riemann dentro de los sistemas de gráficos existenciales para poder descubrir propiedades topológicas y categoriales de dicho sistema de lógica diagramática. Con todos estos avances no se ha podido encontrar una interpretación filosófica satisfactoria a dichas estructuras.
-	En el presente trabajo nos proponemos realizar una interpretación filosófica a los gráficos existenciales alfa de C.S. Peirce en la estructura de Riemann de la Cinta de Moebious. Elegimos dicha estructura debido a que tiene una semántica ya estudiada y consideramos que será mucho más conveniente el poder realizar dicha interpretación en una estructura ya estudiada. Nuestra hipótesis es que la cinta de Moebious puede ser interpretada como una lógica paraconsistente (o una familia de lógicas paraconsistentes). Para esto vamos a definir los gráficos existenciales alfa, las propiedades que tienen estos en la cinta de Moebious y vamos a dar cuenta del procedimiento para poder alcanzar dicha interpretación sugerida. Por último vamos a dejar algunas cuestiones abiertas dadas por este trabajo y las conclusiones.
+	En el presente trabajo nos proponemos realizar una interpretación filosófica a los gráficos existenciales alfa de C.S. Peirce en la estructura de Riemann de la Cinta de Möbius. Elegimos dicha estructura debido a que tiene una semántica ya estudiada y consideramos que será mucho más conveniente el poder realizar dicha interpretación en una estructura ya estudiada. Nuestra hipótesis es que la cinta de Möbius puede ser interpretada como una lógica paraconsistente (o una familia de lógicas paraconsistentes). Para esto vamos a definir los gráficos existenciales alfa, las propiedades que tienen estos en la cinta de Möbius y vamos a dar cuenta del procedimiento para poder alcanzar dicha interpretación sugerida. Por último vamos a dejar algunas cuestiones abiertas dadas por este trabajo y las conclusiones.
 \end{abstract}
 
-{\noindent\textbf{Keywords:} Peirce, gráficos existenciales, cinta de moubious, interpretación filosófica}
+{\noindent\textbf{Keywords:} Peirce, gráficos existenciales, cinta de möbious, interpretación filosófica}
 
 \medskip
 
@@ -66,11 +80,11 @@
 \section{Introducción}
 \label{sec:Introducción}
 
-En los últimos años se ha comenzado a estudiar con fuerza dentro de la denominada \textit{Escuela Colombiana Peirceana} varias arístas posibles de los Gráficos Existenciales de C. S. Peirce. Una demostración de esto son los trabajos realizados por los matemáticos del Tolima con Oostra a la cabeza \sidecite{oostra2009, oostra2010, oostra2011, oostra2012, oostra2021, oostra2023} y el desarrollo matemático y filosófico de Zalamea \sidetextcite{zalamea2010, zalameatraba2010, zalamea2011, zalamea2019}. Si uno revisa los trabajos de la escuela colombiana, las mayores innovaciones son las de fuerte contenido matemático (no estamos diciendo que dichos avances no se encuentren dentro de una visión y proyecto con fuerte inspiración filosofíca, más bien todo lo contrario como lo muestran muy bien los trabajos de Zalamea). Sin embargo, consideramos que dichos avances como ser la los de los gráficos existenciales intuicionistas y los desarrollos de los gráficos en superficies de Riemann les falta una caracterización de orden filosófico. El trabajo de Peirce en lógica en general y con los gráficos existenciales en particular siempre estuvo connotada por su trabajo de enriquecer su propia postura y sistema filosófico.\sidenote{Esto puede verse claramente en uno de sus últimos trabajos publicados \cite{peirce1906}.} Nosotros nos enmarcamos dentro de los interpretes de Peirce y somos grandes propulsores de su lógica diagramática. En este sentido nos encontramos en la misma línea que Oostra y Zalamea. Nuestro trabajo solo pretende ser una contribución de lo ya realizado por ellos y su equipo. Es decir, este trabajo no es una crítica de su postura del tratamiento de la lógica diagramática de Peirce, más bien es pararse en esos hombros de gigantes de la comunidad peirceana para poder seguir acrecentando el conocimiento.
+En los últimos años se ha comenzado a estudiar con fuerza dentro de la denominada \textit{Escuela Colombiana Peirceana} varias arístas posibles de los Gráficos Existenciales de C. S. Peirce. Una demostración de esto son los trabajos realizados por los matemáticos del Tolima con Oostra a la cabeza \sidecite{oostra2010, oostra2011, oostra2012, oostra2021, oostra2022} y el desarrollo matemático y filosófico de \sidetextcite{zalamea2010}. Si uno revisa los trabajos de la escuela colombiana, las mayores innovaciones son las de fuerte contenido matemático (no estamos diciendo que dichos avances no se encuentren dentro de una visión y proyecto con fuerte inspiración filosófica, más bien todo lo contrario como lo muestran muy bien los trabajos de Zalamea). Sin embargo, consideramos que dichos avances como ser la los de los \textit{gráficos existenciales intuicionistas} y los desarrollos de los gráficos sobre variedades topológicas y porteriormente sobre Superficies de Riemann les falta una caracterización de orden filosófico. El trabajo de Peirce en lógica en general y con los gráficos existenciales en particular siempre estuvo connotada por su trabajo de enriquecer su propia postura y sistema filosófico.\sidenote{Esto puede verse en uno de sus últimos trabajos publicados \cite{peirce1906}.} Nosotros nos enmarcamos dentro de los interpretes de Peirce y somos grandes propulsores de su lógica diagramática. En este sentido nos encontramos en la misma línea que Oostra y Zalamea. Nuestro trabajo solo pretende ser una contribución de lo ya realizado por ellos y su equipo. Es decir, este trabajo no es una crítica de su postura del tratamiento de la lógica diagramática de Peirce, más bien es pararse en esos hombros de gigantes de la comunidad peirceana para poder seguir acrecentando el conocimiento.
 
 \subsection{Plan de trabajo} % (fold)
 \label{sub:Plan de trabajo}
-En el presente trabajo vamos a prodecer de la siguiente manera: primero vamos a introducir el sistema de gráficos existenciales alfa. Luego, vamos a dar cuenta de la estructura de la cinta de Moebious y cómo ésta se relaciona con los gráficos existenciales, para ello vamos a tomar en consideración lo estudiado por \cite{oostra2023} y por su equipo de matemáticos. Habiendo preparado todo el campo lógico técnico vamos a indagar ciertos conceptos lógicos filosóficos como ser el del \textit{universo del discurso} y ciertas descripciones realizadas por Peirce respecto de la hoja de aseveración y el corte. Teniendo todo esto vamos a otorgar la interpretación filosófica\sidecite{barrio2018} de los gráficos en la cinta de Moebious.
+En el presente trabajo vamos a proceder de la siguiente manera: primero vamos a introducir el sistema de gráficos existenciales alfa. Luego, vamos a dar cuenta de la estructura de la cinta de Möbius y cómo ésta se relaciona con los gráficos existenciales, para ello vamos a tomar en consideración lo estudiado por \cite{oostra2023} y por su equipo de matemáticos. Habiendo preparado todo el campo lógico técnico vamos a indagar ciertos conceptos lógicos filosóficos como ser el del \textit{universo del discurso} y ciertas descripciones realizadas por Peirce respecto de la hoja de aseveración y el corte. Teniendo todo esto vamos a otorgar la interpretación filosófica\sidecite{barrio2018} de los gráficos en la cinta de Möbius.
 
 % subsection Plan de trabajo (end)
 
@@ -78,20 +92,28 @@ En el presente trabajo vamos a prodecer de la siguiente manera: primero vamos a 
 
 \section{Gráficos existenciales alfa}
 
-Los gráficos existenciales propuestos por Peirce vienen a dar cuenta de una preocupación propia del filósofo pragmatista y a la vez de dar su propio intento dentro de la historia de la lógica en los momentos de la conformación de la lógica matemática después de la silogística aristotélica (véase \cite{brady2011}).
+Los gráficos existenciales propuestos por Peirce vienen a dar cuenta de una preocupación propia del filósofo pragmatista y a la vez de dar su propio intento dentro de la historia de la lógica en los momentos de la conformación de la lógica matemática después de la silogística aristotélica (véase \sidecite{brady2011}).
 
-Lo importante e interesante de este sistema de lógica es que presenta a la lógica en una serie de elementos diagramáticos y reglas de transformación para poder transformar de un estado inicial a otro los gráficos presentes en la hoja de aseveración. Otro punto importante es que para la realización de los gráficos existenciales tienen que entenderse de manera dialógica: hay un grafista quien inscribe los gráficos en la hoja y, por otro lado, un interprete que interpreta lo aseverado en la hoja.\sidenote{Cabe destacar que estos roles no tienen que ser necesariamente entidades físicas o personas. Pueden ser muy bien considerados como agentes o como roles dentro de un mismo agente. Si se desea indagar más estas cuestiones véase \cite{peirce1906}.} Ahora bien los elementos diagramáticos son los siguientes:
+Los gráficos existenciales (GE) fueron inventados en 1896 por Charles S. Peirce, quién, en el estudio de las álgebras lógicas, ideó un tratamiento gráfico alternativo al netamente algebraico que en su época se daba a la lógica de relaciones (y que él mismo había ayudado a desarrollar). Los modelos \textit{Alfa} y \textit{Beta} constituyen por sí solos un tratamiento completo y consistente de la lógica elemental \sidecite{roberts1973}. Así, los (GE) de Peirce constituyen una presentación enteramente diagramática, coherente y unitaria, de muy diversas lógicas: cálculo proposicional clásico, cálculo proposicional intuicionista, lógica de primer orden, lógicas modales, lógicas de orden superior. Estos representan respectivamente, con Alfa, la \textit{lógica proposicional} y, con Beta, la \textit{lógica de predicados} (sin símbolos funcionales). Desarrollos posteriores proponen un nivel \textit{Gama} asociado a razonamientos por fuera de la lógica clásica, cubriendo tanto el ámbito modal \sidecite{zeman1964}, como algunas lógicas de orden superior. Con ciertas transformaciones adicionales en la sintaxis, los GE se han extendido también hacia la lógica intuicionista \sidecite{oostra2010}. En síntesis, con unas reglas comunes muy simples (``arquetipos") y con ligeras variaciones en los signos (``tipos"), se obtiene una muy amplia visión de la lógica, a partir de una reducida e incipiente semilla de ideas geométricas.
+%Ya añadiré al documento las citas correspondientes 
+
+
+Lo importante e interesante de este sistema de lógica es que presenta a la lógica en una serie de elementos diagramáticos y reglas de transformación para poder transformar de un estado inicial a otro los gráficos presentes en la hoja de aseveración. Otro punto importante es que para la realización de los gráficos existenciales tienen que entenderse de manera dialógica: hay un grafista quien inscribe los gráficos en la hoja y, por otro lado, un interprete que interpreta lo aseverado en la hoja.\sidenote{Cabe destacar que estos roles no tienen que ser necesariamente entidades físicas o personas. Pueden ser muy bien considerados como agentes o como roles dentro de un mismo agente. Si se desea indagar más estas cuestiones véase \cite{peirce1906}.} 
+
+Los GE de Peirce constituyen un modelo lógico \emph{diagramático}: dentro de él razonamos de forma gráfica (o mediante formas gráficas) y expresamos proposiciones e inferencias mediante un pequeño número de herramientas o reglas. Con ellas veremos que el razonamiento deductivo dentro del sistema puede ser analizado a través de la \emph{ inserción} u \emph{ omisión} de proposiciones y la \emph{ deformación} de los diversos elementos que puedan aseverarse. Nos enfrentamos entonces a \emph{ movimientos} y \emph{ transformaciones} de figuras, en un ambiente geométrico general, y \emph{ topológico} en particular, pues, como veremos, las reglas de transformación de los diagramas se ejecutarán sobre un \emph{ fondo continuo}.
+
+Ahora bien los elementos diagramáticos son los siguientes:
 
 \begin{definition}[Hoja de aseveración]
-	La hoja de aseveración es un plano $ L $ en el cual se pueden realiar ciertas acciones como ser la de insertar letras proposionales, cortes. La hoja de aseveración sin nada en ella ya es un gráfico en sí misma.
+	La hoja de aseveración es un plano $ L $ en el cual se pueden realizar ciertas acciones como ser la de insertar letras proposionales, cortes. La hoja de aseveración sin nada en ella ya es un gráfico en sí misma.
 \end{definition}
 
-\begin{definition}[Letras proposionales]
-	Letras proposionales en mayúsculas como por ejemplo: $ P, Q, R, \dots, etc $. Cualquiera letra proposicional se considera un gráfico.
+\begin{definition}[Letras proposicionales]
+	Letras proposicionales en mayúsculas como por ejemplo: $ P, Q, R, \dots, etc $. Cualquiera letra proposicional se considera un gráfico.
 \end{definition}
 
 \begin{definition}[Corte]
-	Curva de Jordan cerrada la cual puede encerrar a cualquier letra proposional, y otros cortes. El corte en dí mismo también es un gráfico.
+	Curva (de Jordan) la cual puede encerrar cualquier fragmento o área de la hoja incluyendo letras proposicionales, y otros cortes. El corte en sí mismo también es un gráfico.
 \end{definition}
 
 A continuación daremos las Reglas de transformación con las que podremos transformar los gráficos existenciales alfa:
@@ -116,31 +138,80 @@ A continuación daremos las Reglas de transformación con las que podremos trans
 	Dado un corte doble en cualquier área par de la hoja de aseveración éste puede ser borrado.
 \end{definition}
 
-Solo con estos elementos y con las reglas de transformación, es que se puede tener el equivalente de la lógica proposional completa y correcta de modo diagramático (véase \cite{roberts1973}).
+Solo con estos elementos y con las reglas de transformación, es que se puede tener el equivalente de la lógica proposicional completa y correcta de modo diagramático (véase \sidecite{roberts1973}).
 
 Algunos ejemplos de ciertas proposiciones realizadas en gráficos existenciales son las siguientes:
 
-\section{La Cinta de Moebious} % (fold)
-\label{sec:La Cinta de Moebious}
+%Introducir ejemplos gráficos. Haré diagramas en tikz
 
-% section La Cinta de Moebious (end)
+
+Si bien estas definiciones son extraidas de los textos de Peirce, es necesario refinar las definiciones de modo matemático, por ello vamos a hacerlo en las siguientes subsecciones.
+\subsection{La hoja de Asersión como plano (Matemática)}
+
+Para hablar de GE es importante notar que la superficie donde se desarrollan los diagramas o los gráficos es primordialmente un plano (sin cortes o divisiones), es decir tiene dimensión 2. Para efectos prácticos la llamaremos \textit{Hoja de Aserción} (HA), pues lo que la caracteriza es su cualidad de ser ``sobre lo que se escribe o sobre lo que se afirma". Para Peirce, esta podría ser un tablero o una hoja de papel; para nosotros será el \emph{plano complejo}, forma universal de continuidad topológica como veremos más adelante. Esta hoja representará nuestro universo de discurso, es decir, la suma de todo aquello que quien razona concibe como algo sobre lo que se puede razonar. La hoja de aserción corresponderá a uno de nuestros símbolos primitivos dentro de los GE y asumiremos que esta en sí misma es un gráfico, incluso si está vacía. 
+
+Como podría inferirse de forma natural, gracias al nombre de nuestro primer elemento primitivo, realizar una aserción corresponderá a expresar tal afirmación sobre nuestra hoja, por lo que más adelante diremos que estos modos de análisis están cifrados bajo \textit{reglas de escritura}. Así, cuando escribimos ``La función $f$ es continua en $[a,b]$" en HA, estamos afirmando que hay una función en nuestro universo de discurso y que esta es continua.
+
+
+\begin{marginfigure}[h!]
+\begin{center}  
+
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,478); %set diagram left start at 0, and has height of 478
+
+%Shape: Rectangle [id:dp7444153910910605] 
+\draw  [color={rgb, 255:red, 150; green, 150; blue, 150 }  ,draw opacity=1 ] (185,99) -- (494.4,99) -- (494.4,275.8) -- (185,275.8) -- cycle ;
+
+% Text Node
+\draw (231,180) node [anchor=north west][inner sep=0.75pt]   [align=left] {La función $f$ es continua en $[a,b]$};
+
+
+\end{tikzpicture}
+
+%\caption{Proposición sobre la Hoja de Aserción}
+\end{center}    
+\end{marginfigure}
+
+Los gráficos existenciales se gobiernan por medio de \emph{permisos pragmáticos} sobre la hoja de aserción, que pueden verse dualmente. Para precisiones técnicas y desarrollos enteramente formales, ver (Oostra 2018)\footnote[5]{\cite{OostraLibro}.}. Así, las  reglas de sistema se resumen en:
+
+%%Angie Hugueth: Características complejas, topológicas, suavidad, acciones sobre una superficie. Construcción a aprtir de bases equivale a construcción semántica posterior.
+
+\subsection{Extensiones Naturales: Variable compleja y Topología}
+
+% Introducción a variedades diferenciales, preservación de la noción de "plano" en la hoja, caras, transformación en la suavidad y acciones ligadas a la paridad en áreas. Aparición de nuevas superficies para gráficos Alfa
+
+
+\section{La Cinta de Möbious} % (fold)
+\label{sec:La Cinta de Möbius}
+
+\subsection{Introducción como variedad topológica}
+
+%construcción de la cinta, características geomtétricas. Emergencia histórica.
+
+\subsection{Construcción de una base para la lógica Alfa}
+
+% section La Cinta de Möbius (end)
 
 \section{Previo a la interpreción filosofíca} % (fold)
 \label{sec:Previo a la interpreción filosofíca}
 
-Antes de poder otorgar a los gráficos existenciales en la superficie de la cinta de Moebious una posible interpretación filosófica es necesario poder ahondar en algunos conceptos importantes considerados por el propio Peirce al momento de la creación de los gráficos para tener las nociones necesarias para una interpretación fructífera y, ante todo, plausible. Hay que tener en cuenta que en varios lados la hoja de aseveración se encuentra en relación con la noción lógica de Universo de Discurso.
+Antes de poder otorgar a los gráficos existenciales en la superficie de la cinta de Möbius una posible interpretación filosófica es necesario poder ahondar en algunos conceptos importantes considerados por el propio Peirce al momento de la creación de los gráficos para tener las nociones necesarias para una interpretación fructífera y, ante todo, plausible. Hay que tener en cuenta que en varios lados la hoja de aseveración se encuentra en relación con la noción lógica de Universo de Discurso.
 
 Peirce da cuenta de la noción de universo de discurso de distintas maneras en varios lugares, por ejemplo:
 
-\enquote{De Morgan, in the remarkable memoir with which he opened his discussion of the syllogism (1846, p. 380) has pointed out that we often carry on reasoning under an implied restriction as to what we shall consider as possible, which restriction, applying to the whole of what is said, need not be expressed. The total of all that we consider possible is called the universe of discourse, and may be very limited. One mode of limiting our universe is by considering only what actually occurs, so that everything which does not occur is regarded as impossible. (CP 3.174, 1880)}
+\enquote{"De Morgan, in the remarkable memoir with which he opened his discussion of the syllogism (1846, p. 380) has pointed out that we often carry on reasoning under an implied restriction as to what we shall consider as possible, which restriction, applying to the whole of what is said, need not be expressed. The total of all that we consider possible is called the universe of discourse, and may be very limited. One mode of limiting our universe is by considering only what actually occurs, so that everything which does not occur is regarded as impossible." (CP 3.174, 1880)}
 
-\enquote{In every proposition the circumstances of its enunciation show that it refers to some collection of individuals or of possibilities, which cannot be adequately described, but can only be indicated as something familiar to both speaker and auditor. At one time it may be the physical universe of sense (1), at another it may be the imaginary “world” of some play or novel, at another a range of possibilities. (CP 2.536, 1902)}
+\enquote{"In every proposition the circumstances of its enunciation show that it refers to some collection of individuals or of possibilities, which cannot be adequately described, but can only be indicated as something familiar to both speaker and auditor. At one time it may be the physical universe of sense (1), at another it may be the imaginary “world” of some play or novel, at another a range of possibilities." (CP 2.536, 1902)}
 
 Aquello que se considera como posible o las circunstancias de enunciación de un conjunto de proposiciones es el universo del discurso. Es decir, dicho universo permite las condiciones para que los razonamientos o argumentos puedan desplegarse adecuadamente. Asimismo el universo del discurso no solo prepara a quien va a realizar las proferencias, diagramación de las proposiciones, sino también para aquel que va a interpretarlas:
 
-\enquote{In all discourse, or reasoning, there are \textit{virtually} two parties. Either there are actually two parties, as when one speaker addresses an audience of one or more persons; or else one person reasons out something with himself, and even then, the difference between his conceptions and opinions before and after a given operation of thought results in his influencing himself much as one person influences another; so that we may say that even in this case there are \textit{virtually} two parties.
+\enquote{"In all discourse, or reasoning, there are \textit{virtually} two parties. Either there are actually two parties, as when one speaker addresses an audience of one or more persons; or else one person reasons out something with himself, and even then, the difference between his conceptions and opinions before and after a given operation of thought results in his influencing himself much as one person influences another; so that we may say that even in this case there are \textit{virtually} two parties.
 
-The discourse of these two parties must relate to something which is \textit{common to the experience of both}, or else they will be quite at cross-purposes. This common experience considered as a collective whole of units, the logicians for the last half century [have] commonly called the \textit{universe of discourse}. (MS [R] 25:2)}
+The discourse of these two parties must relate to something which is \textit{common to the experience of both}, or else they will be quite at cross-purposes. This common experience considered as a collective whole of units, the logicians for the last half century [have] commonly called the \textit{universe of discourse}." (MS [R] 25:2)}
 
 El universo del discurso permite que el grafista y el interprete se encuentren en un \textit{common ground} del cual se supongan varias nociones y elementos para que estos no tengan problemas a la hora de realizar las interpretaciones debidas para averiguar y analizar si ciertos gráficos son o no válidos.
 
@@ -150,22 +221,22 @@ En los gráficos existenciales alfa la hoja de aseveración viene a representar 
 
 Algo ha destacar de igual manera es lo concerniente a la acción del corte en si misma. Como figura topológica el corte ha sido analizado ampliamente \sidecite{pietarinenetal2020}. Ahora bien el corte realiza una acción particular en la hoja de afirmación (\textif{assertion}) como bien marca Peirce en 1903:
 
-\enquote{A cut is not a graph-replica. A cut drawn upon the sheet of assertion severs the surface it encloses, called the area of the cut, from the sheet of assertion; so that the area of a cut is no part of the sheet of assertion. (CP 4.414)}
+\enquote{"A cut is not a graph-replica. A cut drawn upon the sheet of assertion severs the surface it encloses, called the area of the cut, from the sheet of assertion; so that the area of a cut is no part of the sheet of assertion." (CP 4.414)}
 
-Como lo describe el propio Peirce, el corte realiza la acción de determinar lo que se encuentra dentro del corte (el área del corte) como aquello que no pertenece a la hoja de aseveración. En este sentido, varios autores han marcado que la hoja de aseveración puede entenderse como el top ($\top$) y el corte sin ninguna letra proposicional dentro como el \textit{falsum} ($\bot$).\sidenote{Esto permitió que se pueda desarrollar pruebas de corrección y completitud para el sistemas de gráficos existenciales alfa solo basándose en los gráficos. Véase TODO: agregar cita del trabajo} Filosóficamente esta idea de que área del corte no es parte de la hoja es interesante para poder ver cómo ésta se manifiesta en las estructuras de Riemann como la cinta de Moebious.
+Como lo describe el propio Peirce, el corte realiza la acción de determinar lo que se encuentra dentro del corte (el área del corte) como aquello que no pertenece a la hoja de aseveración. En este sentido, varios autores han marcado que la hoja de aseveración puede entenderse como el top ($\top$) y el corte sin ninguna letra proposicional dentro como el \textit{falsum} ($\bot$).\sidenote{Esto permitió que se pueda desarrollar pruebas de corrección y completitud para el sistemas de gráficos existenciales alfa solo basándose en los gráficos. Véase TODO: agregar cita del trabajo} Filosóficamente esta idea de que área del corte no es parte de la hoja es interesante para poder ver cómo ésta se manifiesta en las estructuras de Riemann como la cinta de Möbius.
 
 El universo del discurso no solo tiene las características ahora conocidas en el ámbito de la lógica. Sino también componen dentro del campo semiótico el espacio donde el grafista y el interprete de tienen lo \emph{común} para poder llevar a cabo el proceso de los gráficos existenciales. Esto no es algo menor debido a que en los sistemas axiomáticos o incluso en los sistemas de calculo de secuentes o de deducción natural no se encuentra presente el ámbito implícito de lo que es necesario que se tenga en cuenta para poder interpretar la validez o incluso la confección misma de un argumento, algo que si se encuentra en el sistema de gráficos existenciales.
 
 Visto de esta manera, nos parece peculiar que determinadas características del universo del discurso y de la hoja de aseveración hayan dado lugar a que se pueda expresar topológicamente la lógica clásica sin haber tenido la enorme cantidad de resultados topológicos que se encuentran en la actualidad.\sidenote{Cabe destacar que Peirce si conocía la topología, puesto que era contemporáneo a varios de los matemáticos que indagaban en dicha área e incluso realizó algunas observaciones de orden topológico, sin embargo por obvias razones no puede compararse con cualquier topólogo contemporáneo.}
 
-Lo necesario para dar cuenta de la interpretación filosófica es que encontremos características del universo del discurso que coincidan con algunas de las características de la cinta de Moebious, para luego, observar con cual lógica o familia de lógicas tiene una posible relación.
+Lo necesario para dar cuenta de la interpretación filosófica es que encontremos características del universo del discurso que coincidan con algunas de las características de la cinta de Möbius, para luego, observar con cual lógica o familia de lógicas tiene una posible relación.
 
 % section Previo a la interpreción filosofíca (end)
 
 \section{Interpretación filosófica} % (fold)
 \label{sec:Interpretación filosófica}
 
-Una posible idea para dar cuenta de la interpretación filosófica es considerar que lo que hace el corte en la hoja de afirmación es dar vuelta, mostrar el reverso de la misma. Aquello que no se es afirmado. Aquello por lo cual uno no se hace responsable de su verdad.\sidenote{Haciendo alusión a la definición de \textit{assertion} de Peirce.} Entonces uno podría pensar que si la hoja de afirmación se transforma en una cinta de Moebious de afirmación, dicha cinta solo tiene una cara. No hay un anverso y un reverso. Al menos no globalmente hablando. Si lo hay localmente.  
+Una posible idea para dar cuenta de la interpretación filosófica es considerar que lo que hace el corte en la hoja de afirmación es dar vuelta, mostrar el reverso de la misma. Aquello que no se es afirmado. Aquello por lo cual uno no se hace responsable de su verdad.\sidenote{Haciendo alusión a la definición de \textit{assertion} de Peirce.} Entonces uno podría pensar que si la hoja de afirmación se transforma en una cinta de Möbius de afirmación, dicha cinta solo tiene una cara. No hay un anverso y un reverso. Al menos no globalmente hablando. Si lo hay localmente.  
 
 % section Interpretación filosófica (end)
 
