@@ -1,7 +1,7 @@
 % Load the kaohandt class (with the default options)
 \documentclass[
 	fontsize=10pt, % Base font size
-	twoside=true, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+	twoside=false, % If true, use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
 	secnumdepth=1, % How deep to number headings. Defaults to 2 (subsections)
 	abstract=true, % Uncomment to print the title of the abstract
 ]{kaohandt}
@@ -69,7 +69,7 @@
 	En el presente trabajo nos proponemos realizar una interpretación filosófica a los gráficos existenciales alfa de C.S. Peirce en la estructura de Riemann de la Cinta de Möbius. Elegimos dicha estructura debido a que tiene una semántica ya estudiada y consideramos que será mucho más conveniente el poder realizar dicha interpretación en una estructura ya estudiada. Nuestra hipótesis es que la cinta de Möbius puede ser interpretada como una lógica paraconsistente (o una familia de lógicas paraconsistentes). Para esto vamos a definir los gráficos existenciales alfa, las propiedades que tienen estos en la cinta de Möbius y vamos a dar cuenta del procedimiento para poder alcanzar dicha interpretación sugerida. Por último vamos a dejar algunas cuestiones abiertas dadas por este trabajo y las conclusiones.
 \end{abstract}
 
-{\noindent\textbf{Keywords:} Peirce, gráficos existenciales, cinta de möbious, interpretación filosófica}
+{\noindent\textbf{Keywords:} Peirce, gráficos existenciales, cinta de Möbious, interpretación filosófica}
 
 \medskip
 
@@ -84,7 +84,7 @@ En los últimos años se ha comenzado a estudiar con fuerza dentro de la denomin
 
 \subsection{Plan de trabajo} % (fold)
 \label{sub:Plan de trabajo}
-En el presente trabajo vamos a proceder de la siguiente manera: primero vamos a introducir el sistema de gráficos existenciales alfa. Luego, vamos a dar cuenta de la estructura de la cinta de Möbius y cómo ésta se relaciona con los gráficos existenciales, para ello vamos a tomar en consideración lo estudiado por \cite{oostra2023} y por su equipo de matemáticos. Habiendo preparado todo el campo lógico técnico vamos a indagar ciertos conceptos lógicos filosóficos como ser el del \textit{universo del discurso} y ciertas descripciones realizadas por Peirce respecto de la hoja de aseveración y el corte. Teniendo todo esto vamos a otorgar la interpretación filosófica\sidecite{barrio2018} de los gráficos en la cinta de Möbius.
+En el presente trabajo vamos a proceder de la siguiente manera: primero vamos a introducir el sistema de gráficos existenciales alfa. Luego, vamos a dar cuenta de la estructura de la cinta de Möbius y cómo ésta se relaciona con los gráficos existenciales, para ello vamos a tomar en consideración lo estudiado por \cite{oostra2022} y por su equipo de matemáticos. Habiendo preparado todo el campo lógico técnico vamos a indagar ciertos conceptos lógicos filosóficos como ser el del \textit{universo del discurso} y ciertas descripciones realizadas por Peirce respecto de la hoja de aseveración y el corte. Teniendo todo esto vamos a otorgar la interpretación filosófica\sidecite{barrio2018} de los gráficos en la cinta de Möbius.
 
 % subsection Plan de trabajo (end)
 
@@ -113,7 +113,7 @@ Ahora bien los elementos diagramáticos son los siguientes:
 \end{definition}
 
 \begin{definition}[Corte]
-	Curva (de Jordan) la cual puede encerrar cualquier fragmento o área de la hoja incluyendo letras proposicionales, y otros cortes. El corte en sí mismo también es un gráfico.
+	Curva simple cerrada la cual puede encerrar cualquier fragmento o área de la hoja incluyendo letras proposicionales, y otros cortes. El corte en sí mismo también es un gráfico.
 \end{definition}
 
 A continuación daremos las Reglas de transformación con las que podremos transformar los gráficos existenciales alfa:
@@ -215,13 +215,15 @@ The discourse of these two parties must relate to something which is \textit{com
 
 El universo del discurso permite que el grafista y el interprete se encuentren en un \textit{common ground} del cual se supongan varias nociones y elementos para que estos no tengan problemas a la hora de realizar las interpretaciones debidas para averiguar y analizar si ciertos gráficos son o no válidos.
 
-En los gráficos existenciales alfa la hoja de aseveración viene a representar el universo del dicurso. En este sentido dicho universo del discurso tiene determinadas características que hacen que dicho universo pueda ser compatible con la lógica clásica:
+En los gráficos existenciales alfa la hoja de aseveración viene a representar el universo del discurso. En este sentido dicho universo del discurso tiene determinadas características que hacen que dicho universo pueda ser compatible con la lógica clásica:
 
-\enquote{TODO: Colocar sobre cómo es el universo del discurso de la hoja de aseveración para Peirce.}
+\enquote{La hoja en la que los gráficos son escritos (llamada hoja de aseveración), como cada una de sus partes, es un gráfico que asevera que un reconocido universo es definido (por lo que ninguna aseveración puede ser verdadera y falsa a la vez), individual (por lo que cada aseveración o es verdadera o es falsa) y real (lo que es verdadero y lo que es falso es independiente de cualquier juicio de un hombre o hombres, a menos que el creador del universo, en este caso es ficticio); y cualquier gráfico escrito sobre la hoja es por tanto aseverado de ese universo; cualquier multitud de gráficos escritos desconectadamente sobre la hoja son todos aseveraciones de dicho universo. (MS [R] 491, c 1903)}
 
-Algo ha destacar de igual manera es lo concerniente a la acción del corte en si misma. Como figura topológica el corte ha sido analizado ampliamente \sidecite{pietarinenetal2020}. Ahora bien el corte realiza una acción particular en la hoja de afirmación (\textif{assertion}) como bien marca Peirce en 1903:
+Claramente la hoja de aseveración lo sostiene los principios de tercer excluido (propiedad de individualidad) y de no contradicción (propiedad de lo definido), ambos principios fundamentales de la lógica clásica. La propiedad de lo real tiene que ver más con una relación entre la lógica y la metafísica, particularmente con el realismo escolástico que Peirce sostiene en un madurez en contraposición al nominalismo y al idealismo hegeliano marcado en la época. La asociación de estos dos principios con esas dos características de la hoja nos lleva a pensar que dada otras características de la hoja se podría dar lugar a nuevas formas de considerar la hoja de aseveración. ¿Cuáles son esas características necesarias para poder dar cuenta de una nueva hoja de aseveración? Consideramos que la respuesta esta dentro de la semántica de la cinta de Möbius. Las propiedades de la semántica de la cinta son diferentes a la del plano que es la de la hoja de aseveración. La estructura dada por la cinta es justamente la de una estructura que solo tiene una cara, su verso y reverso son el mismo. La propiedad de individualidad está dada en la hoja en que se puede distinguir con claridad si lo que se afirma es o no es dentro de la hoja misma. La propiedad de lo definido tiene que ver que todo lo que se afirma está en la hoja, es decir no hay nada fuera de ella. Hay que ver si la cinta de Möbius sigue manteniendo estas propiedades o no, para ello es necesario que hayamos dado con la semántica en la sección \ref{sec:La Cinta de Möbius}.
 
-\enquote{"A cut is not a graph-replica. A cut drawn upon the sheet of assertion severs the surface it encloses, called the area of the cut, from the sheet of assertion; so that the area of a cut is no part of the sheet of assertion." (CP 4.414)}
+Algo ha destacar de igual manera es lo concerniente a la acción del corte en si misma. Como figura topológica el corte ha sido analizado ampliamente \sidecite{pietarinenetal2020}. Ahora bien el corte realiza una acción particular en la hoja de afirmación (\emph{assertion}) como bien marca Peirce en 1903:
+
+\enquote{A cut is not a graph-replica. A cut drawn upon the sheet of assertion severs the surface it encloses, called the area of the cut, from the sheet of assertion; so that the area of a cut is no part of the sheet of assertion. (CP 4.414)}
 
 Como lo describe el propio Peirce, el corte realiza la acción de determinar lo que se encuentra dentro del corte (el área del corte) como aquello que no pertenece a la hoja de aseveración. En este sentido, varios autores han marcado que la hoja de aseveración puede entenderse como el top ($\top$) y el corte sin ninguna letra proposicional dentro como el \textit{falsum} ($\bot$).\sidenote{Esto permitió que se pueda desarrollar pruebas de corrección y completitud para el sistemas de gráficos existenciales alfa solo basándose en los gráficos. Véase TODO: agregar cita del trabajo} Filosóficamente esta idea de que área del corte no es parte de la hoja es interesante para poder ver cómo ésta se manifiesta en las estructuras de Riemann como la cinta de Möbius.
 
@@ -243,7 +245,7 @@ Una posible idea para dar cuenta de la interpretación filosófica es considerar
 \section{Conclusiones} % (fold)
 \label{sec:Conclusiones}
 
-Como futuras investigaciones tenemos la visión de seguir realizando lo mismo que hemos realizado aquí pero para las otras estructuras de Riemann que ya Oostra y equipo determinaron en sus trabajos. Consideramos que es meritorio dicho trabajo pero que para que éste siga el mismo espíritu peircano es necesario tener dar cuenta de las interpretaciones filosoficas de dichas estructuras matemáticas. Considearmos que la filosofía de Peirce si bien es de un pluralismo radical (véase \cite{rosenthal1994}) siempre ha tenido una fuerte impronta filosófica en todo lo que tiene que ver con sus consideraciones matemáticas. Es en este sentido que creemos que continuamos con su tarea y legado dejado para la comunidad filosófica y científica. Como bien marca Peirce lo que menos deseamos es que se bloquee el camino de la investigación.
+Como futuras investigaciones tenemos la visión de seguir realizando lo mismo que hemos realizado aquí pero para las otras estructuras de Riemann que ya Oostra y equipo determinaron en sus trabajos. Consideramos que es meritorio dicho trabajo pero que para que éste siga el mismo espíritu peircano es necesario tener dar cuenta de las interpretaciones filosoficas de dichas estructuras matemáticas. Considearmos que la filosofía de Peirce si bien es de un pluralismo radical (véase \sidecite{rosenthal1994}) siempre ha tenido una fuerte impronta filosófica en todo lo que tiene que ver con sus consideraciones matemáticas. Es en este sentido que creemos que continuamos con su tarea y legado dejado para la comunidad filosófica y científica. Como bien marca Peirce lo que menos deseamos es que se bloquee el camino de la investigación.
 
 % section Conclusiones (end)
 % \blindtext
@@ -261,5 +263,5 @@ Como futuras investigaciones tenemos la visión de seguir realizando lo mismo qu
 % The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
 
 \printbibliography[title=Bibliografía] % Set the title of the bibliography and print the references
-\nocite{peirce1931}
+\nocite{peirce1931, robin1971}
 \end{document}
